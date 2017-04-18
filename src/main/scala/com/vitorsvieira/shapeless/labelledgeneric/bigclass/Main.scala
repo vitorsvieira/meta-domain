@@ -110,28 +110,6 @@ object Empty {
 }
 
 case class Foo(
-    one: String,
-    two: Int,
-    three: Boolean,
-    field1: String,
-    field2: String,
-    field3: String,
-    field4: String,
-    field5: String,
-    field6: String,
-    field7: Int,
-    field8: Double,
-    field9: Double,
-    field10: String,
-    field11: Int,
-    field12: Double,
-    field13: Double,
-    field14: String
-)
-
-case class Bar(
-    three: Boolean,
-    one: String,
     field1: String,
     field2: String,
     field3: String,
@@ -144,6 +122,16 @@ case class Bar(
     field10: String
 )
 
+case class Bar(
+    field6: String,
+    field7: Int,
+    field9: Double,
+    field10: String,
+    field1: String,
+    field2: String,
+    field5: String
+)
+
 object Main extends App {
   implicit class MigrationOps[A](original: A) {
     def migrateTo[B](implicit migration: Migration[A, B]): B =
@@ -152,9 +140,6 @@ object Main extends App {
 
   println(
     Foo(
-      one = "One",
-      two = 2,
-      three = false,
       field1 = "test",
       field2 = "test",
       field3 = "test",
@@ -164,11 +149,7 @@ object Main extends App {
       field7 = 1,
       field8 = 2.0,
       field9 = 2.0,
-      field10 = "test",
-      field11 = 1,
-      field12 = 2.0,
-      field13 = 2.0,
-      field14 = "test"
+      field10 = "test"
     ).migrateTo[Bar]
   )
 }
