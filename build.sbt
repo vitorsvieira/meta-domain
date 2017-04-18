@@ -9,6 +9,8 @@ lazy val `shapeless-labelledgeneric-big-class` =
     .settings(settings)
     .settings(
       libraryDependencies ++= Seq(
+        library.cats,
+        library.shapeless,
         library.scalaCheck % Test,
         library.scalaTest  % Test
       )
@@ -21,9 +23,14 @@ lazy val `shapeless-labelledgeneric-big-class` =
 lazy val library =
   new {
     object Version {
+      val cats       = "0.9.0"
+      val shapeless  = "2.3.2"
       val scalaCheck = "1.13.4"
       val scalaTest  = "3.0.1"
     }
+
+    val cats       = "org.typelevel"  %% "cats"       % Version.cats
+    val shapeless  = "com.chuusai"    %% "shapeless"  % Version.shapeless
     val scalaCheck = "org.scalacheck" %% "scalacheck" % Version.scalaCheck
     val scalaTest  = "org.scalatest"  %% "scalatest"  % Version.scalaTest
   }
