@@ -122,7 +122,11 @@ case class Foo(
     field7: Int,
     field8: Double,
     field9: Double,
-    field10: String
+    field10: String,
+    field11: Int,
+    field12: Double,
+    field13: Double,
+    field14: String
 )
 
 case class Bar(
@@ -148,8 +152,8 @@ object Main extends App {
 
   println(
     Foo(
-      "One",
-      2,
+      one = "One",
+      two = 2,
       three = false,
       field1 = "test",
       field2 = "test",
@@ -160,7 +164,11 @@ object Main extends App {
       field7 = 1,
       field8 = 2.0,
       field9 = 2.0,
-      field10 = "test"
+      field10 = "test",
+      field11 = 1,
+      field12 = 2.0,
+      field13 = 2.0,
+      field14 = "test"
     ).migrateTo[Bar]
   )
 }
